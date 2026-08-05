@@ -449,29 +449,6 @@
       </field>
     </fields>
   </logformat>
-  <logformat name="ARHS">
-    <description>helicopter AutoRotation Head Speed (ARHS) controller information</description>
-    <fields>
-      <field name="TimeUS" units="μs" type="uint64_t">
-        <description>Time since system startup</description>
-      </field>
-      <field name="Tar" units="" type="float">
-        <description>Normalised target head speed</description>
-      </field>
-      <field name="Act" units="" type="float">
-        <description>Normalised measured head speed</description>
-      </field>
-      <field name="Err" units="" type="float">
-        <description>Head speed controller error</description>
-      </field>
-      <field name="P" units="" type="float">
-        <description>P-term for head speed controller response</description>
-      </field>
-      <field name="FF" units="" type="float">
-        <description>FF-term for head speed controller response</description>
-      </field>
-    </fields>
-  </logformat>
   <logformat name="ARM">
     <description>Arming status changes</description>
     <fields>
@@ -708,69 +685,6 @@
       </field>
     </fields>
   </logformat>
-  <logformat name="AROT">
-    <description>Helicopter AutoROTation (AROT) information</description>
-    <fields>
-      <field name="TimeUS" units="μs" type="uint64_t">
-        <description>Time since system startup</description>
-      </field>
-      <field name="LR" units="" type="uint8_t">
-        <description>Landed Reason state flags</description>
-        <bitmask name="AC_Autorotation_Landed_Reason">
-          <bit name="LOW_SPEED">
-            <value>1</value>
-            <description>true if below 1 m/s</description>
-          </bit>
-          <bit name="LAND_COL">
-            <value>2</value>
-            <description>true if collective below land col min</description>
-          </bit>
-          <bit name="IS_STILL">
-            <value>4</value>
-            <description>passes inertial nav is_still() check</description>
-          </bit>
-        </bitmask>
-      </field>
-    </fields>
-  </logformat>
-  <logformat name="ARSC">
-    <description>Helicopter AutoRotation Speed Controller (ARSC) information </description>
-    <fields>
-      <field name="TimeUS" units="μs" type="uint64_t">
-        <description>Time since system startup</description>
-      </field>
-      <field name="Des" units="m/s" type="float">
-        <description>Desired forward velocity</description>
-      </field>
-      <field name="Tar" units="m/s" type="float">
-        <description>Target forward velocity</description>
-      </field>
-      <field name="Act" units="m/s" type="float">
-        <description>Measured forward velocity</description>
-      </field>
-      <field name="P" units="" type="float">
-        <description>Velocity to acceleration P-term component</description>
-      </field>
-      <field name="I" units="" type="float">
-        <description>Velocity to acceleration I-term component</description>
-      </field>
-      <field name="D" units="" type="float">
-        <description>Velocity to acceleration D-term component</description>
-      </field>
-      <field name="FF" units="" type="float">
-        <description>Velocity to acceleration feed forward component</description>
-      </field>
-      <field name="Lim" units="" type="uint8_t">
-        <description>Accel limit flag</description>
-      </field>
-      <field name="FA" units="m/s/s" type="float">
-        <description>Forward acceleration target</description>
-      </field>
-      <field name="LA" units="m/s/s" type="float">
-        <description>Lateral acceleration target</description>
-      </field>
-    </fields>
-  </logformat>
   <logformat name="ARSP">
     <description>Airspeed sensor data</description>
     <fields>
@@ -896,67 +810,6 @@
       </field>
     </fields>
   </logformat>
-  <logformat name="ATDH">
-    <description>Heli AutoTune data packet</description>
-    <fields>
-      <field name="TimeUS" units="μs" type="uint64_t">
-        <description>Time since system startup</description>
-      </field>
-      <field name="Cmd" units="" type="float">
-        <description>current motor command</description>
-      </field>
-      <field name="TRate" units="deg/s" type="float">
-        <description>current target angular rate</description>
-      </field>
-      <field name="Rate" units="deg/s" type="float">
-        <description>current angular rate</description>
-      </field>
-      <field name="TAng" units="deg" type="float">
-        <description>current target angle</description>
-      </field>
-      <field name="Ang" units="deg" type="float">
-        <description>current angle</description>
-      </field>
-    </fields>
-  </logformat>
-  <logformat name="ATNH">
-    <description>Heli AutoTune</description>
-    <fields>
-      <field name="TimeUS" units="μs" type="uint64_t">
-        <description>Time since system startup</description>
-      </field>
-      <field name="Axis" units="" type="uint8_t">
-        <description>which axis is currently being tuned</description>
-      </field>
-      <field name="TuneStep" units="" type="uint8_t">
-        <description>step in autotune process</description>
-      </field>
-      <field name="Freq" units="rad/s" type="float">
-        <description>target dwell frequency</description>
-      </field>
-      <field name="Gain" units="" type="float">
-        <description>measured gain of dwell</description>
-      </field>
-      <field name="Phase" units="deg" type="float">
-        <description>measured phase of dwell</description>
-      </field>
-      <field name="RFF" units="" type="float">
-        <description>new rate gain FF term</description>
-      </field>
-      <field name="RP" units="" type="float">
-        <description>new rate gain P term</description>
-      </field>
-      <field name="RD" units="" type="float">
-        <description>new rate gain D term</description>
-      </field>
-      <field name="SP" units="" type="float">
-        <description>new angle P term</description>
-      </field>
-      <field name="ACC" units="deg/s/s" type="float">
-        <description>new max accel term</description>
-      </field>
-    </fields>
-  </logformat>
   <logformat name="ATSC">
     <description>Scale factors for attitude controller</description>
     <fields>
@@ -992,32 +845,6 @@
       </field>
     </fields>
   </logformat>
-  <logformat name="ATSH">
-    <description>Heli AutoTune Sweep packet</description>
-    <fields>
-      <field name="TimeUS" units="μs" type="uint64_t">
-        <description>Time since system startup</description>
-      </field>
-      <field name="freq_m" units="rad/s" type="float">
-        <description>current frequency for motor input to rate</description>
-      </field>
-      <field name="gain_m" units="" type="float">
-        <description>current response gain for motor input to rate</description>
-      </field>
-      <field name="phase_m" units="deg" type="float">
-        <description>current response phase for motor input to rate</description>
-      </field>
-      <field name="freq_t" units="rad/s" type="float">
-        <description>current frequency for target rate to rate</description>
-      </field>
-      <field name="gain_t" units="" type="float">
-        <description>current response gain for target rate to rate</description>
-      </field>
-      <field name="phase_t" units="deg" type="float">
-        <description>current response phase for target rate to rate</description>
-      </field>
-    </fields>
-  </logformat>
   <logformat name="ATT">
     <description>Canonical vehicle attitude</description>
     <fields>
@@ -1044,41 +871,6 @@
       </field>
       <field name="AEKF" units="" type="uint8_t">
         <description>active EKF type</description>
-      </field>
-    </fields>
-  </logformat>
-  <logformat name="ATUN">
-    <description>Copter/QuadPlane AutoTune</description>
-    <fields>
-      <field name="TimeUS" units="μs" type="uint64_t">
-        <description>Time since system startup</description>
-      </field>
-      <field name="Axis" units="" type="uint8_t">
-        <description>which axis is currently being tuned</description>
-      </field>
-      <field name="TuneStep" units="" type="uint8_t">
-        <description>step in autotune process</description>
-      </field>
-      <field name="Targ" units="deg" type="float">
-        <description>target angle or rate, depending on tuning step</description>
-      </field>
-      <field name="Min" units="deg" type="float">
-        <description>measured minimum target angle or rate</description>
-      </field>
-      <field name="Max" units="deg" type="float">
-        <description>measured maximum target angle or rate</description>
-      </field>
-      <field name="RP" units="" type="float">
-        <description>new rate gain P term</description>
-      </field>
-      <field name="RD" units="" type="float">
-        <description>new rate gain D term</description>
-      </field>
-      <field name="SP" units="" type="float">
-        <description>new angle P term</description>
-      </field>
-      <field name="ddt" units="m/s/s" type="float">
-        <description>maximum measured twitching acceleration</description>
       </field>
     </fields>
   </logformat>
@@ -2461,7 +2253,7 @@
       <field name="Alt" units="m" type="float">
         <description>achieved altitude</description>
       </field>
-      <field name="BAlt" units="m" type="float">
+      <field name="BAlt" units="cm" type="float">
         <description>barometric altitude</description>
       </field>
       <field name="DSAlt" units="m" type="float">
@@ -2470,13 +2262,13 @@
       <field name="SAlt" units="m" type="float">
         <description>achieved rangefinder altitude</description>
       </field>
-      <field name="TAlt" units="m" type="float">
+      <field name="TAlt" units="cm" type="float">
         <description>terrain altitude</description>
       </field>
-      <field name="DCRt" units="m/s" type="float">
+      <field name="DCRt" units="cm/s" type="int16_t">
         <description>desired climb rate</description>
       </field>
-      <field name="CRt" units="m/s" type="float">
+      <field name="CRt" units="cm/s" type="int16_t">
         <description>climb rate</description>
       </field>
     </fields>
@@ -3529,74 +3321,6 @@
       </field>
     </fields>
   </logformat>
-  <logformat name="FHLD">
-    <url>https://ardupilot.org/copter/docs/flowhold-mode.html</url>
-    <description>FlowHold mode messages</description>
-    <fields>
-      <field name="TimeUS" units="" type="uint64_t">
-        <description>Time since system startup</description>
-      </field>
-      <field name="SFx" units="" type="float">
-        <description>Filtered flow rate, X-Axis</description>
-      </field>
-      <field name="SFy" units="" type="float">
-        <description>Filtered flow rate, Y-Axis</description>
-      </field>
-      <field name="Ax" units="" type="float">
-        <description>Target lean angle, X-Axis</description>
-      </field>
-      <field name="Ay" units="" type="float">
-        <description>Target lean angle, Y-Axis</description>
-      </field>
-      <field name="Qual" units="" type="float">
-        <description>Flow sensor quality. If this value falls below FHLD_QUAL_MIN parameter, FlowHold will act just like AltHold.</description>
-      </field>
-      <field name="Ix" units="" type="float">
-        <description>Integral part of PI controller, X-Axis</description>
-      </field>
-      <field name="Iy" units="" type="float">
-        <description>Integral part of PI controller, Y-Axis</description>
-      </field>
-    </fields>
-  </logformat>
-  <logformat name="FHXY">
-    <description>Height estimation using optical flow sensor </description>
-    <fields>
-      <field name="TimeUS" units="" type="uint64_t">
-        <description>Time since system startup</description>
-      </field>
-      <field name="DFx" units="" type="float">
-        <description>Delta flow rate, X-Axis</description>
-      </field>
-      <field name="DFy" units="" type="float">
-        <description>Delta flow rate, Y-Axis</description>
-      </field>
-      <field name="DVx" units="" type="float">
-        <description>Integrated delta velocity rate, X-Axis</description>
-      </field>
-      <field name="DVy" units="" type="float">
-        <description>Integrated delta velocity rate, Y-Axis</description>
-      </field>
-      <field name="Hest" units="" type="float">
-        <description>Estimated Height</description>
-      </field>
-      <field name="DH" units="" type="float">
-        <description>Delta Height</description>
-      </field>
-      <field name="Hofs" units="" type="float">
-        <description>Height offset</description>
-      </field>
-      <field name="InsH" units="" type="float">
-        <description>Height estimate from inertial navigation library</description>
-      </field>
-      <field name="LastInsH" units="" type="float">
-        <description>Last used INS height in optical flow sensor height estimation calculations </description>
-      </field>
-      <field name="DTms" units="" type="uint32_t">
-        <description>Time between optical flow sensor updates. This should be less than 500ms for performing the height estimation calculations</description>
-      </field>
-    </fields>
-  </logformat>
   <logformat name="FILE">
     <description>File data</description>
     <fields>
@@ -3932,82 +3656,6 @@
       </field>
       <field name="Cn" units="" type="float">
         <description>yaw coefficient</description>
-      </field>
-    </fields>
-  </logformat>
-  <logformat name="GMB1">
-    <description>Solo Gimbal measurements</description>
-    <fields>
-      <field name="TimeUS" units="μs" type="uint64_t">
-        <description>Time since system startup</description>
-      </field>
-      <field name="dt" units="ms" type="float">
-        <description>sum of time across measurements in this packet</description>
-      </field>
-      <field name="dax" units="rad" type="float">
-        <description>delta-angle sum, x-axis</description>
-      </field>
-      <field name="day" units="rad" type="float">
-        <description>delta-angle sum, y-axis</description>
-      </field>
-      <field name="daz" units="rad" type="float">
-        <description>delta-angle sum, z-axis</description>
-      </field>
-      <field name="dvx" units="rad/s" type="float">
-        <description>delta-velocity sum, x-axis</description>
-      </field>
-      <field name="dvy" units="rad/s" type="float">
-        <description>delta-velocity sum, y-axis</description>
-      </field>
-      <field name="dvz" units="rad/s" type="float">
-        <description>delta-velocity sum, z-axis</description>
-      </field>
-      <field name="jx" units="rad/s/s" type="float">
-        <description>joint angle, x</description>
-      </field>
-      <field name="jy" units="rad/s/s" type="float">
-        <description>joint angle, y</description>
-      </field>
-      <field name="jz" units="rad/s/s" type="float">
-        <description>joint angle, z</description>
-      </field>
-    </fields>
-  </logformat>
-  <logformat name="GMB2">
-    <description>Solo Gimbal estimation and demands</description>
-    <fields>
-      <field name="TimeUS" units="μs" type="uint64_t">
-        <description>Time since system startup</description>
-      </field>
-      <field name="es" units="" type="uint8_t">
-        <description>Solo Gimbal EKF status bits</description>
-      </field>
-      <field name="ex" units="rad" type="float">
-        <description>Solo Gimbal EKF estimate of gimbal angle, x-axis</description>
-      </field>
-      <field name="ey" units="rad" type="float">
-        <description>Solo Gimbal EKF estimate of gimbal angle, y-axis</description>
-      </field>
-      <field name="ez" units="rad" type="float">
-        <description>Solo Gimbal EKF estimate of gimbal angle, y-axis</description>
-      </field>
-      <field name="rx" units="rad/s" type="float">
-        <description>Angular velocity demand around x-axis</description>
-      </field>
-      <field name="ry" units="rad/s" type="float">
-        <description>Angular velocity demand around y-axis</description>
-      </field>
-      <field name="rz" units="rad/s" type="float">
-        <description>Angular velocity demand around z-axis</description>
-      </field>
-      <field name="tx" units="rad/s/s" type="float">
-        <description>Angular position target around x-axis</description>
-      </field>
-      <field name="ty" units="rad/s/s" type="float">
-        <description>Angular position target around y-axis</description>
-      </field>
-      <field name="tz" units="rad/s/s" type="float">
-        <description>Angular position target around z-axis</description>
       </field>
     </fields>
   </logformat>
@@ -4440,43 +4088,8 @@
       </field>
     </fields>
   </logformat>
-  <logformat name="GUIA">
-    <description>Guided mode attitude target information</description>
-    <fields>
-      <field name="TimeUS" units="μs" type="uint64_t">
-        <description>Time since system startup</description>
-      </field>
-      <field name="Type" units="" type="uint8_t">
-        <description>Type of guided mode</description>
-      </field>
-      <field name="Roll" units="deg" type="float">
-        <description>Target attitude, Roll</description>
-      </field>
-      <field name="Pitch" units="deg" type="float">
-        <description>Target attitude, Pitch</description>
-      </field>
-      <field name="Yaw" units="deg" type="float">
-        <description>Target attitude, Yaw</description>
-      </field>
-      <field name="RollRt" units="deg/s" type="float">
-        <description>Roll rate</description>
-      </field>
-      <field name="PitchRt" units="deg/s" type="float">
-        <description>Pitch rate</description>
-      </field>
-      <field name="YawRt" units="deg/s" type="float">
-        <description>Yaw rate</description>
-      </field>
-      <field name="Thrust" units="" type="float">
-        <description>Thrust </description>
-      </field>
-      <field name="ClimbRt" units="m/s" type="float">
-        <description>Climb rate</description>
-      </field>
-    </fields>
-  </logformat>
   <logformat name="GUIP">
-    <description>Guided mode position target information</description>
+    <description>Guided mode target information</description>
     <fields>
       <field name="TimeUS" units="μs" type="uint64_t">
         <description>Time since system startup</description>
@@ -4493,9 +4106,6 @@
       <field name="pZ" units="m" type="float">
         <description>Target position, Z-Axis</description>
       </field>
-      <field name="Terrain" units="" type="int8_t">
-        <description>Target position, Z-Axis is alt above terrain</description>
-      </field>
       <field name="vX" units="m/s" type="float">
         <description>Target velocity, X-Axis</description>
       </field>
@@ -4504,15 +4114,6 @@
       </field>
       <field name="vZ" units="m/s" type="float">
         <description>Target velocity, Z-Axis</description>
-      </field>
-      <field name="aX" units="m/s/s" type="float">
-        <description>Target acceleration, X-Axis</description>
-      </field>
-      <field name="aY" units="m/s/s" type="float">
-        <description>Target acceleration, Y-Axis</description>
-      </field>
-      <field name="aZ" units="m/s/s" type="float">
-        <description>Target acceleration, Z-Axis</description>
       </field>
     </fields>
   </logformat>
@@ -5274,58 +4875,6 @@
       </field>
       <field name="fh" units="" type="float">
         <description>Height for flare timing.</description>
-      </field>
-    </fields>
-  </logformat>
-  <logformat name="LDET">
-    <description>Land Detector State</description>
-    <fields>
-      <field name="TimeUS" units="μs" type="uint64_t">
-        <description>Time since system startup</description>
-      </field>
-      <field name="Flags" units="" type="uint16_t">
-        <description>boolean state flags</description>
-        <bitmask name="Copter::LandDetectorLoggingFlag">
-          <bit name="LANDED">
-            <value>1</value>
-          </bit>
-          <bit name="LANDED_MAYBE">
-            <value>2</value>
-          </bit>
-          <bit name="LANDING">
-            <value>4</value>
-          </bit>
-          <bit name="STANDBY_ACTIVE">
-            <value>8</value>
-          </bit>
-          <bit name="WOW">
-            <value>16</value>
-          </bit>
-          <bit name="RANGEFINDER_BELOW_2M">
-            <value>32</value>
-          </bit>
-          <bit name="DESCENT_RATE_LOW">
-            <value>64</value>
-          </bit>
-          <bit name="ACCEL_STATIONARY">
-            <value>128</value>
-          </bit>
-          <bit name="LARGE_ANGLE_ERROR">
-            <value>256</value>
-          </bit>
-          <bit name="LARGE_ANGLE_REQUEST">
-            <value>256</value>
-          </bit>
-          <bit name="MOTOR_AT_LOWER_LIMIT">
-            <value>512</value>
-          </bit>
-          <bit name="THROTTLE_MIX_AT_MIN">
-            <value>1024</value>
-          </bit>
-        </bitmask>
-      </field>
-      <field name="Count" units="" type="uint32_t">
-        <description>landing_detector pass count</description>
       </field>
     </fields>
   </logformat>
@@ -7899,30 +7448,6 @@
       </field>
     </fields>
   </logformat>
-  <logformat name="PTUN">
-    <url>https://ardupilot.org/copter/docs/tuning.html#in-flight-tuning</url>
-    <description>Parameter Tuning information</description>
-    <fields>
-      <field name="TimeUS" units="μs" type="uint64_t">
-        <description>Time since system startup</description>
-      </field>
-      <field name="Param" units="instance" type="uint8_t">
-        <description>Parameter being tuned</description>
-      </field>
-      <field name="TunVal" units="" type="float">
-        <description>Normalized value used inside tuning() function</description>
-      </field>
-      <field name="TunMin" units="" type="float">
-        <description>Tuning minimum limit</description>
-      </field>
-      <field name="TunMax" units="" type="float">
-        <description>Tuning maximum limit</description>
-      </field>
-      <field name="NIn" units="" type="float">
-        <description>normalaised control input (normalised -1 to 1 value)</description>
-      </field>
-    </fields>
-  </logformat>
   <logformat name="QWIK">
     <description>Quicktune</description>
     <fields>
@@ -9429,26 +8954,6 @@
       </field>
     </fields>
   </logformat>
-  <logformat name="RTDT">
-    <description>Attitude controller time deltas</description>
-    <fields>
-      <field name="TimeUS" units="μs" type="uint64_t">
-        <description>Time since system startup</description>
-      </field>
-      <field name="dt" units="s" type="float">
-        <description>current time delta</description>
-      </field>
-      <field name="dtAvg" units="s" type="float">
-        <description>current time delta average</description>
-      </field>
-      <field name="dtMax" units="s" type="float">
-        <description>Max time delta since last log output</description>
-      </field>
-      <field name="dtMin" units="s" type="float">
-        <description>Min time delta since last log output</description>
-      </field>
-    </fields>
-  </logformat>
   <logformat name="RTER">
     <description>Replay Terrain SRTM Altitude</description>
     <fields>
@@ -9843,73 +9348,6 @@
       </field>
       <field name="f3" units="" type="float">
         <description>fin 3 velocity</description>
-      </field>
-    </fields>
-  </logformat>
-  <logformat name="SIDD">
-    <description>System ID data</description>
-    <fields>
-      <field name="TimeUS" units="μs" type="uint64_t">
-        <description>Time since system startup</description>
-      </field>
-      <field name="Time" units="s" type="float">
-        <description>Time reference for waveform</description>
-      </field>
-      <field name="Targ" units="" type="float">
-        <description>Current waveform sample</description>
-      </field>
-      <field name="F" units="Hz" type="float">
-        <description>Instantaneous waveform frequency</description>
-      </field>
-      <field name="Gx" units="deg/s" type="float">
-        <description>Delta angle, X-Axis</description>
-      </field>
-      <field name="Gy" units="deg/s" type="float">
-        <description>Delta angle, Y-Axis</description>
-      </field>
-      <field name="Gz" units="deg/s" type="float">
-        <description>Delta angle, Z-Axis</description>
-      </field>
-      <field name="Ax" units="m/s/s" type="float">
-        <description>Delta velocity, X-Axis</description>
-      </field>
-      <field name="Ay" units="m/s/s" type="float">
-        <description>Delta velocity, Y-Axis</description>
-      </field>
-      <field name="Az" units="m/s/s" type="float">
-        <description>Delta velocity, Z-Axis</description>
-      </field>
-    </fields>
-  </logformat>
-  <logformat name="SIDS">
-    <description>System ID settings</description>
-    <fields>
-      <field name="TimeUS" units="μs" type="uint64_t">
-        <description>Time since system startup</description>
-      </field>
-      <field name="Ax" units="" type="uint8_t">
-        <description>The axis which is being excited</description>
-      </field>
-      <field name="Mag" units="" type="float">
-        <description>Magnitude of the chirp waveform</description>
-      </field>
-      <field name="FSt" units="s" type="float">
-        <description>Frequency at the start of chirp</description>
-      </field>
-      <field name="FSp" units="s" type="float">
-        <description>Frequency at the end of chirp</description>
-      </field>
-      <field name="TFin" units="s" type="float">
-        <description>Time to reach maximum amplitude of chirp</description>
-      </field>
-      <field name="TC" units="s" type="float">
-        <description>Time at constant frequency before chirp starts</description>
-      </field>
-      <field name="TR" units="s" type="float">
-        <description>Time taken to complete chirp waveform</description>
-      </field>
-      <field name="TFout" units="s" type="float">
-        <description>Time to reach zero amplitude after chirp finishes</description>
       </field>
     </fields>
   </logformat>
@@ -10512,47 +9950,6 @@
       </field>
     </fields>
   </logformat>
-  <logformat name="SURF">
-    <description>Surface distance measurement</description>
-    <fields>
-      <field name="TimeUS" units="μs" type="uint64_t">
-        <description>Time since system startup</description>
-      </field>
-      <field name="I" units="instance" type="uint8_t">
-        <description>Instance</description>
-      </field>
-      <field name="St" units="" type="uint8_t">
-        <description>Surface distance status</description>
-        <bitmask name="Surface_Distance_Status">
-          <bit name="Enabled">
-            <value>1</value>
-            <description>true if rangefinder has been set to enable by vehicle</description>
-          </bit>
-          <bit name="Unhealthy">
-            <value>2</value>
-            <description>true if rangefinder is considered unhealthy</description>
-          </bit>
-          <bit name="Stale_Data">
-            <value>4</value>
-            <description>true if the last healthy rangefinder reading is no longer valid</description>
-          </bit>
-          <bit name="Glitch_Detected">
-            <value>8</value>
-            <description>true if a measurement glitch detected</description>
-          </bit>
-        </bitmask>
-      </field>
-      <field name="D" units="m" type="float">
-        <description>Raw Distance</description>
-      </field>
-      <field name="FD" units="m" type="float">
-        <description>Filtered Distance</description>
-      </field>
-      <field name="TO" units="m" type="float">
-        <description>Terrain Offset</description>
-      </field>
-    </fields>
-  </logformat>
   <logformat name="SWSH">
     <description>Helicopter swashplate logging</description>
     <fields>
@@ -10685,68 +10082,6 @@
       </field>
       <field name="VFD" units="" type="float">
         <description>Force on vehicle in Down direction</description>
-      </field>
-    </fields>
-  </logformat>
-  <logformat name="THRO">
-    <url>https://ardupilot.org/copter/docs/throw-mode.html</url>
-    <description>Throw Mode messages</description>
-    <fields>
-      <field name="TimeUS" units="μs" type="uint64_t">
-        <description>Time since system startup</description>
-      </field>
-      <field name="Stage" units="" type="uint8_t">
-        <description>Current stage of the Throw Mode</description>
-      </field>
-      <field name="Vel" units="m/s" type="float">
-        <description>Magnitude of the velocity vector</description>
-      </field>
-      <field name="VelZ" units="m/s" type="float">
-        <description>Vertical Velocity</description>
-      </field>
-      <field name="Acc" units="m/s/s" type="float">
-        <description>Magnitude of the vector of the current acceleration</description>
-      </field>
-      <field name="AccEfZ" units="m/s/s" type="float">
-        <description>Vertical earth frame accelerometer value</description>
-      </field>
-      <field name="Throw" units="" type="int8_t">
-        <description>True if a throw has been detected since entering this mode</description>
-      </field>
-      <field name="AttOk" units="" type="int8_t">
-        <description>True if the vehicle is upright </description>
-      </field>
-      <field name="HgtOk" units="" type="int8_t">
-        <description>True if the vehicle is within 0.5 m of the demanded height</description>
-      </field>
-      <field name="PosOk" units="" type="int8_t">
-        <description>True if the vehicle is within 0.5 m of the demanded horizontal position</description>
-      </field>
-    </fields>
-  </logformat>
-  <logformat name="THST">
-    <description>Maximum thrust limitation based on battery voltage in Toy Mode</description>
-    <fields>
-      <field name="TimeUS" units="" type="uint64_t">
-        <description>Time since system startup</description>
-      </field>
-      <field name="Vol" units="" type="float">
-        <description>Filtered battery voltage</description>
-      </field>
-      <field name="Mul" units="" type="float">
-        <description>Thrust multiplier between 0 and 1 to limit the output thrust based on battery voltage</description>
-      </field>
-      <field name="M1" units="" type="uint16_t">
-        <description>Motor 1 pwm output</description>
-      </field>
-      <field name="M2" units="" type="uint16_t">
-        <description>Motor 2 pwm output</description>
-      </field>
-      <field name="M3" units="" type="uint16_t">
-        <description>Motor 3 pwm output</description>
-      </field>
-      <field name="M4" units="" type="uint16_t">
-        <description>Motor 4 pwm output</description>
       </field>
     </fields>
   </logformat>
