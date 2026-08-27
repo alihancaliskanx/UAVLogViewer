@@ -58,7 +58,6 @@
 </template>
 
 <script>
-import isOnline from 'is-online'
 import Plotly from '@/components/Plotly.vue'
 import CesiumViewer from '@/components/CesiumViewer.vue'
 import Sidebar from '@/components/Sidebar.vue'
@@ -86,7 +85,18 @@ export default {
         this.state.timeAttitude = []
         this.state.timeAttitudeQ = []
         this.state.currentTrajectory = []
-        isOnline().then(a => { this.state.isOnline = a })
+        // navigator.onLine, not the is-online package.
+        //
+        // is-online is a Node tool; in the browser it probes an external URL
+        // (icanhazip.com) over XHR, which CORS blocks. The check then reports
+        // offline even on a perfectly good connection, the viewer is built in
+        // offline mode, and the globe comes out black with the flight path
+        // floating in a starfield.
+        //
+        // navigator.onLine is what the browser already knows. It only reports
+        // false when there is genuinely no network interface, which is the one
+        // case the offline viewer is meant for.
+        this.state.isOnline = navigator.onLine !== false
     },
     beforeDestroy () {
         this.$eventHub.$off('messages')
