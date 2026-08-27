@@ -2,6 +2,18 @@ import '../mavextra/mavextra'
 import '../mavextra/mymavextra'
 
 export const store = {
+    // Assume we are online until the check in Home.vue says otherwise.
+    //
+    // CesiumViewer.asyncSetup() reads this on mount to decide between the
+    // online viewer (Esri imagery) and the offline one (no imagery at all).
+    // isOnline() resolves asynchronously, so on a fast load the viewer was
+    // built before the answer arrived, saw undefined, and created the offline
+    // viewer: a black globe with stars and the flight path floating in it.
+    //
+    // Defaulting to true fails in the harmless direction. If the machine
+    // really is offline the tiles simply do not load, which is what the
+    // offline viewer would have shown anyway.
+    isOnline: true,
     // currentTrajectory: [],
     trajectorySource: '',
     trajectories: {},
