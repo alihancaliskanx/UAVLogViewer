@@ -70,8 +70,25 @@ import CesiumSettingsWidget from './widgets/CesiumSettingsWidget.vue'
 import ColorCoderMode from './cesiumExtra/colorCoderMode.js'
 import ColorCoderRange from './cesiumExtra/colorCoderRange.js'
 
-Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2MmM0MDgzZC00OGVkLTRjZ' +
-    'TItOWI2MS1jMGVhYTM2MmMzODYiLCJpZCI6MjczNywiaWF0IjoxNjYyMTI4MjkxfQ.fPqhawtYLhwyZirKCi8fEjPEIn1CjYqETvA0bYYhWRA'
+// Cesium ion access token.
+//
+// Set CESIUM_TOKEN in the build environment (Vercel -> Environment Variables);
+// config/prod.env.js passes it through DefinePlugin. Not hardcoded, because
+// this repository is public.
+//
+// The token that shipped upstream was revoked at some point: api.cesium.com
+// answers 401 for it, so no imagery or terrain loads and the flight path ends
+// up floating against the starfield with no Earth under it.
+//
+// A free account at https://cesium.com/ion gives you a token.
+if (process.env.CESIUM_TOKEN) {
+    Ion.defaultAccessToken = process.env.CESIUM_TOKEN
+} else {
+    console.warn(
+        'CESIUM_TOKEN is not set: the globe will not load. ' +
+        'Create a free token at https://cesium.com/ion and set it in the build environment.'
+    )
+}
 
 function getMinTime (data) {
     // returns the minimum time in the array. Used to define the time range
